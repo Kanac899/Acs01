@@ -16,21 +16,20 @@
 	
     <body class="test">
 		<div>
-			<a href="./search.php">さがすのだ</a>
-			<div>
-				<p>残り：<span>1000</span>Byte</p>
-				<ul>
-					<li><a href="./view.php?param=きよひー">きよひー</a></li>
-					<li><a href="./view.php?param=みそら">カーマ</a></li>
-				</ul>
-			</div>
-		</div>
+			<section class="Image">
+				<canvas></canvas>
+				<input type="button" value="<" id="b1"></input>
+				<input type="button" value=">" id="b2"></input>
+				<input type="image" id="b3" class="bbs" src="./res/Btn01.png"></input>
+				<input type="image" id="b4" class="bbs" src="./res/Btn02.png"></input>
+				<div><span id='s1'></span>:<span id='s2'></span></div>
+			</section>
 
-		
-		<script>
-			$(function() {
-				view_top();
-			});
-		</script>
+			<script>
+				$(function() {
+					view_init();
+				});
+			</script>
+		</div>
 	</body>
 </html>

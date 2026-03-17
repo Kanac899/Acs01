@@ -1,0 +1,31 @@
+a{
+    height: 3rem;
+    width: 80%;
+    border: 3px double black;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+p {
+    margin: 0;
+    padding-top: 1rem;
+}
+
+body > div {
+	display: grid;
+	align-content: start;
+	justify-items: center;
+}
+
+
+
+
+
+
+
+
+
