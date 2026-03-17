@@ -23,6 +23,16 @@ const DB_NAME = 'KanacPdf';
 const DB_VERSION = 1;
 let _DB_BASE;
 
+async function view_top(){
+	if (navigator.storage && navigator.storage.estimate) {
+		const quota = await navigator.storage.estimate();
+		const percentageUsed = (quota.usage / quota.quota) * 100;
+		$("span").text(quota.quota - quota.usage);
+	}
+}
+
+
+
 function ActDB(code,opt){
 	const ORX = indexedDB.open(DB_NAME, DB_VERSION);
 
@@ -98,29 +108,20 @@ function view_init(){
 	});
 }
 
-async function view_top(){
-if (navigator.storage && navigator.storage.estimate) {
-  const quota = await navigator.storage.estimate();
-  // quota.usage -> Number of bytes used.
-  // quota.quota -> Maximum number of bytes available.
-  const percentageUsed = (quota.usage / quota.quota) * 100;
-  console.log(`You've used ${percentageUsed}% of the available storage.`);
-  const remaining = quota.quota - quota.usage;
-  console.log(`You can write up to ${remaining} more bytes.`);
-}
-}
+
 
 //--------------
 function AAA(){
 	$.ajax({
 		type: 'GET',
-		url: '/RR.php',
+		url: 'https://192.168.1.134/GetData.php',
 		dataType: 'json',
 	}).done(async function(data, status, xhr) {
 		ActDB("INSERT",{
-			"NAME":"みそら",
+			"NAME":"AAA",
 			"VALUE":"data:application/pdf;base64," + data.value
 		});
+		alert("追加完了");
 	});
 }
 
