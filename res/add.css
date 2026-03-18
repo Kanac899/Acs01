@@ -107,11 +107,16 @@ section.sch > div > div{
     align-items: center;
     justify-content: center;
 }
-
+section.sch > div > textarea{
+    width: 100%;
+    margin-top: 0.5rem;
+	height: 4rem;
+}
 section.sch > ul{
     width: 90%;
     border: 1px solid black;
     height: auto;
+	overflow-y: scroll;
 }
 section.sch li {
     display: flex;

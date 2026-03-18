@@ -36,11 +36,16 @@ function ActDB(code,opt){
 		if(code == "SELECT"){
 			const gRB = cOS.get(opt);
 			gRB.onsuccess = async function(event){
+				$("#s1").text("読み込み完了");
 				const loadingTask = pdfjsLib.getDocument(gRB.result.VALUE);
 				_PDF = await loadingTask.promise;
 				$("#s2").text(_PDF._pdfInfo.numPages);
 				_ImageDraw(1);
 			}
+			
+			gRB.onerror = () => {
+				$("#s1").text("DBエラー");
+			};
 		}
 		
 		if(code == "LIST"){
@@ -132,8 +137,9 @@ function view_init(){
 }
 
 function view_src(){
-	if(GetParam("sc") != ""){
-		console.log("せつぞく");
+	if(GetParam("rc") != ""){
+		AddLog("検索処理 開始");
+		
 		const xrc = GetParam("rc");
 		const xrs = GetParam("sc");
 		$("#TypeNum").val(xrc);
@@ -158,8 +164,10 @@ function view_src(){
 				$(temp).find("div").attr("onclick", "Act_DataAdd('" + fileName + "');");
 				$("ul").append(temp);
 			});
+			
+			AddLog("検索処理 終了");
 		}).fail((jqXHR, textStatus, errorThrown) => {
-			AddLog("エラーです");
+			AddLog("検索処理 エラー");
 		});
 	}
 }
@@ -189,7 +197,7 @@ function Act_Remove(data){
 }
 
 function Act_DataAdd(name){
-	AddLog("データ追加開始");
+	AddLog("データ追加 開始");
 	
 	$.ajax({
 		type: 'GET',
@@ -200,9 +208,9 @@ function Act_DataAdd(name){
 			"NAME":name,
 			"VALUE":"data:application/pdf;base64," + data.value
 		});
-		AddLog("正常終了");
+		AddLog("データ追加 終了");
 	}).fail((jqXHR, textStatus, errorThrown) => {
-		AddLog("エラーです");
+		AddLog("データ追加 エラー");
 	});
 }
 
@@ -226,12 +234,6 @@ function Connect(){
 	location.href = "./search.html?rc=" + $("#TypeNum").val() + "&sc=" + $("#SearchWord").val();
 }
 //--------------
-
-
-
-
-
-
 
 //==============================================================================
 function _ImageNumberChange(add){
