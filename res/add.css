@@ -142,3 +142,6 @@ section.sch li > div{
 	text-decoration:none;
 }
 
+section.Image{
+	align-content: center;
+}
