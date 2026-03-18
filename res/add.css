@@ -15,15 +15,21 @@ p {
     padding-top: 1rem;
 }
 
-body > div {
-	display: grid;
-	align-content: start;
-	justify-items: center;
+section.ERS {
+    display: grid;
+    justify-content: unset;
+    align-content: start;
 }
-
-
-
-
+section.ERS > div {
+    height: 4rem;
+    display: flex;
+}
+section.ERS > textarea {
+    height: 6rem;
+}
+section.ERS > ul {
+	overflow-y: scroll;
+}
 
 
 

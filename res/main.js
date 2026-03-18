@@ -110,20 +110,28 @@ function view_init(){
 	});
 }
 
-
+function AddLog(data){
+	$("textarea").text($("textarea").text() + data + "\n")
+}
 
 //--------------
 function AAA(){
+	AddLog("データ追加開始");
+	
 	$.ajax({
 		type: 'GET',
 		url: 'https://192.168.1.134/GetData.php',
 		dataType: 'json',
-	}).done(async function(data, status, xhr) {
+	}).done((data, textStatus, jqXHR) => {
 		ActDB("INSERT",{
 			"NAME":"AAA",
 			"VALUE":"data:application/pdf;base64," + data.value
 		});
-		alert("追加完了");
+		AddLog("正常終了");
+	}).fail((jqXHR, textStatus, errorThrown) => {
+		// 異常処理
+		AddLog("異常終了");
+		AddLog(textStatus);
 	});
 }
 

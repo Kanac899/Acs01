@@ -16,24 +16,32 @@
 	
     <body class="test">
 		<div>
-			<a href="./search.php">さがすのだ</a>
-			
-			<div onclick="AAA()">
-			sssssss
-			</div>
-			
-			<div>
-				<p>残り：<span>1000</span>Byte</p>
+			<section class="ERS">
+				<div>
+					<table>
+						<tr>
+							<th>接続設定</th>
+							<td><input type="text" value="192.168.1.1" id="srv"></td>
+						</tr>
+						<tr>
+							<th>残容量</th>
+							<td><span>0</span>Byte</td>
+						</tr>
+					</table>
+					<div onclick="AAA()">sssssss</div>
+					<!--
+					<a href="./search.html">さがすのだ</a>
+					-->
+				</div>
+				<textarea id="sss"></textarea>
 				<ul>
 					<li><a href="./view.php?param=きよひー">きよひー</a></li>
 					<li><a href="./view.php?param=みそら">カーマ</a></li>
 					<li><a href="./view.php?param=AAA">AAA</a></li>
-					
 				</ul>
-			</div>
+			</section>
 		</div>
 
-		
 		<script>
 			$(function() {
 				view_top();
