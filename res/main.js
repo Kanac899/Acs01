@@ -134,7 +134,7 @@ function AAA(){
 	}).fail((jqXHR, textStatus, errorThrown) => {
 		// 異常処理
 		AddLog("異常終了");
-		AddLog(jqXHR.responseJSON.Message);
+		AddLog(jqXHR.status);
 	});
 }
 
