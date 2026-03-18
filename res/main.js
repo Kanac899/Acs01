@@ -131,6 +131,10 @@ function view_src(){
 	if(GetParam("sc") != ""){
 		console.log("せつぞく");
 		const xrc = GetParam("rc");
+		const xrs = GetParam("sc");
+		$("#TypeNum").val(xrc);
+		$("#SearchWord").val(xrs);
+
 		$.ajax({
 			type: 'GET',
 			url: 'https://' + localStorage.getItem("KC_IP") + '/search.php?rc=' + xrc + '&sc=' + GetParam("sc"),
