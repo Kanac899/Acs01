@@ -113,14 +113,16 @@ section.sch > div > textarea{
 	height: 4rem;
 }
 section.sch > ul{
-    width: 90%;
+    width: 100%;
     border: 1px solid black;
     height: auto;
-	overflow-y: scroll;
+    overflow-y: scroll;
+    padding: 0;
 }
 section.sch li {
     display: flex;
     height: 3rem;
+    font-size: 0.6rem;
 }
 section.sch li > span{
     width: calc(100% - 10rem);
@@ -129,19 +131,27 @@ section.sch li > span{
     height: 100%;
     background-color: #cbd5ce;
     overflow: hidden;
+    display: block;
 }
 section.sch li > a,
 section.sch li > div{
 	width: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
-    height: 100%;
-    background-color: #00ff4e;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid black;
+	height: 100%;
+	background-color: #00ff4e;
 	text-decoration:none;
+	font-size: 1rem;
+	color: black;
 }
-
+section.sch li > a{
+	background-color: #67bbd5;
+}
+section.sch li > div{
+	background-color: #ebf962;
+}
 section.Image{
 	align-content: center;
 }
