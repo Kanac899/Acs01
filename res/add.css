@@ -74,6 +74,7 @@ section.ERS > ul > li > a {
     background-color: #00ff2e;
     color: black;
     text-decoration: none;
+    font-size: 0.8rem;	
 }
 section.ERS > ul > li > div {
 	width: 4rem;

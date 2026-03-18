@@ -89,7 +89,11 @@ async function view_top(){
 function view_init(){
 	pdfjsLib.GlobalWorkerOptions.workerSrc = "./res/pdf.worker.js";
 	
-	ActDB("SELECT",GetParam('param'));
+	if(GetParam("pre") != ""){
+		Act_DataPre(GetParam('param'));
+	}else{
+		ActDB("SELECT",GetParam('param'));
+	}
 	
 	_CVS = $("canvas")[0];
 	_CvsCnt = _CVS.getContext("2d");
@@ -183,6 +187,7 @@ function IPSave(){
 function Act_Remove(data){
 	
 }
+
 function Act_DataAdd(name){
 	AddLog("データ追加開始");
 	
@@ -198,6 +203,22 @@ function Act_DataAdd(name){
 		AddLog("正常終了");
 	}).fail((jqXHR, textStatus, errorThrown) => {
 		AddLog("エラーです");
+	});
+}
+
+async function Act_DataPre(name){
+	AddLog("データ追加開始");
+	
+	$.ajax({
+		type: 'GET',
+		url: 'https://' + localStorage.getItem("KC_IP") + '/GetData.php?target=' + name,
+		dataType: 'json',
+	}).done(async function(data, textStatus, jqXHR){
+		const loadingTask = pdfjsLib.getDocument("data:application/pdf;base64," + data.value);
+		_PDF = await loadingTask.promise;
+		$("#s2").text(_PDF._pdfInfo.numPages);
+		_ImageDraw(1);
+		AddLog("正常終了");
 	});
 }
 
