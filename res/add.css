@@ -94,13 +94,8 @@ section.sch{
 
 section.sch > div{
     display: flex;
-    width: 80%;
+    width: 100%;
     justify-content: space-around;
-    border: 1px solid black;
-    padding: 1rem;
-}
-section.sch > div > input{
-    font-size: 1.2rem;
 }
 section.sch > div > div{
     border: 1px solid black;
