@@ -16,36 +16,27 @@
 	
     <body class="test">
 		<div>
-			<section class="ERS">
+			<section class="sch">
 				<div>
-					<table>
-						<tr>
-							<th>接続設定</th>
-							<td>
-								<input type="text" value="192.168.1.1" id="ThisIP" onchange="IPSave()">
-								<div onclick="ConnectTest()">ACS</div>
-							</td>
-						</tr>
-						<tr>
-							<th>残容量</th>
-							<td><span>0</span>Byte</td>
-						</tr>
-					</table>
-					<a href="./search.html">さがすのだ</a>
+					<select id="TypeNum">
+						<option value="11【魔物娘】">11【魔物娘】</option>
+						<option value="52【ブルアカ】">52【ブルアカ】</option>
+					</select>
+					<input type="text" id="SearchWord">
+					<div onclick="Connect()">検索</div>
 				</div>
-				<textarea id="sss"></textarea>
 				<ul>
 					<li class="template">
-						<a href="./view.html?param=きよひー">きよひー</a>
-						<div>削除</div>
+						<span>きよひー</span>
+						<a href="./view.php?param=きよひー">閲覧</a>
+						<div onclick="DataSave()">保存</div>
 					</li>
 				</ul>
 			</section>
-		</div>
 
 		<script>
 			$(function() {
-				view_top();
+				view_src();
 			});
 		</script>
 	</body>

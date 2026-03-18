@@ -1,4 +1,6 @@
-
+.template{
+	display:none;
+}
 section.ERS {
     display: grid;
     justify-content: unset;
@@ -7,12 +9,14 @@ section.ERS {
 section.ERS > div {
     height: 4rem;
     display: flex;
+    align-items: center;
 }
 section.ERS > div > table {
     width: 70%;
 }
 section.ERS th {
     background-color: green;
+    color: white;
 }
 section.ERS td {
     display: flex;
@@ -21,12 +25,12 @@ section.ERS td {
     height: 1.5rem;
 }
 section.ERS input {
-    width:11rem%;
-	height:100%;
+    width: 7rem;
+    height:100%;
 }
 section.ERS td > div {
     font-size: 0.8rem;
-    width: 6rem;
+    width: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,15 +39,16 @@ section.ERS td > div {
     color: white;
     margin-left: 1rem;
 }
-section.ERS > div > div {
+section.ERS > div > a {
     width: 30%;
+    height: 3rem;
     border: 3px double black;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: green;
     color: white;
-    margin: 0.25rem;
+    text-decoration: none;
 }
 
 
@@ -79,4 +84,60 @@ section.ERS > ul > li > div {
     justify-content: center;
 }
 
+
+section.sch{
+	display: grid;
+    align-content: start;
+    justify-items: center;
+    justify-content: unset;
+}
+
+section.sch > div{
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    border: 1px solid black;
+    padding: 1rem;
+}
+section.sch > div > input{
+    font-size: 1.2rem;
+}
+section.sch > div > div{
+    border: 1px solid black;
+    background-color: red;
+    width: 4rem;
+    display: flex;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+section.sch > ul{
+    width: 90%;
+    border: 1px solid black;
+    height: auto;
+}
+section.sch li {
+    display: flex;
+    height: 3rem;
+}
+section.sch li > span{
+    width: calc(100% - 10rem);
+    align-items: center;
+    border: 1px solid black;
+    height: 100%;
+    background-color: #cbd5ce;
+    overflow: hidden;
+}
+section.sch li > a,
+section.sch li > div{
+	width: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    height: 100%;
+    background-color: #00ff4e;
+	text-decoration:none;
+}
 

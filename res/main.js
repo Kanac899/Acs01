@@ -1,7 +1,6 @@
 //--------------------------------------------------------------------
 // Data11
 //--------------------------------------------------------------------
-
 function GetParam(key){
 	let url = new URL(window.location.href);
 	let params = url.searchParams;
@@ -9,7 +8,6 @@ function GetParam(key){
 	if(temp == null)temp = "";
 	return temp;
 }
-
 //--------------------------------------------------------------------
 
 let _PDF;
@@ -19,21 +17,9 @@ let _DispIndex = 1;
 let _MODE_R = false;
 let _MODE_B = false;
 
+//==============================================================================
 const DB_NAME = 'KanacPdf';
 const DB_VERSION = 1;
-let _DB_BASE;
-
-async function view_top(){
-	if (navigator.storage && navigator.storage.estimate) {
-		const quota = await navigator.storage.estimate();
-		const percentageUsed = (quota.usage / quota.quota) * 100;
-		$("span").text(quota.quota - quota.usage);
-	}else{
-		alert("エラー");
-	}
-}
-
-
 
 function ActDB(code,opt){
 	const ORX = indexedDB.open(DB_NAME, DB_VERSION);
@@ -57,7 +43,22 @@ function ActDB(code,opt){
 			}
 		}
 		
-		
+		if(code == "LIST"){
+			const gRB = cOS.getAll();
+			gRB.onsuccess = async function(event){
+				const _temp = $(".template");
+				
+				const datas = gRB.result;
+				datas.forEach(function(dc){
+					const temp = _temp.clone();
+					$(temp).removeClass('template');
+					$(temp).find("a").attr("href", "./view.html?param=" + dc.NAME);
+					$(temp).find("a").text(dc.NAME);
+					$(temp).find("div").attr("onclick", "Act_Remove('" + dc.NAME + "');");
+					$("ul").append(temp);
+				});
+			}
+		}
 		db.close();
 	}
 
@@ -66,6 +67,22 @@ function ActDB(code,opt){
 		db.createObjectStore("PDFData", { keyPath: "NAME" });
 		console.log("初回起動・DB追加");
 		db.close();
+	}
+}
+
+//==============================================================================
+async function view_top(){
+	if (navigator.storage && navigator.storage.estimate) {
+		const quota = await navigator.storage.estimate();
+		const percentageUsed = (quota.usage / quota.quota) * 100;
+		$("span").text(quota.quota - quota.usage);
+		
+		ActDB("LIST",{});
+		
+		const temp = localStorage.getItem("KC_IP");
+		$("#ThisIP").val(temp);
+	}else{
+		alert("エラー");
 	}
 }
 
@@ -110,21 +127,68 @@ function view_init(){
 	});
 }
 
+function view_src(){
+	if(GetParam("sc") != ""){
+		console.log("せつぞく");
+		const xrc = GetParam("rc");
+		$.ajax({
+			type: 'GET',
+			url: 'https://' + localStorage.getItem("KC_IP") + '/search.php?rc=' + xrc + '&sc=' + GetParam("sc"),
+			dataType: 'json',
+		}).done((data, textStatus, jqXHR) => {
+			const _temp = $(".template");
+			const datas = data.value;
+			datas.forEach(function(dc){
+				
+				const fileName = dc.split(xrc)[1].substring(1).split(".")[0];
+				
+				const temp = _temp.clone();
+				$(temp).removeClass('template');
+				$(temp).find("span").text(fileName);
+				$(temp).find("a").attr("href", "./view.html?param=" + fileName + "&pre=true");
+				
+				$(temp).find("div").attr("onclick", "Act_DataAdd('" + fileName + "');");
+				$("ul").append(temp);
+			});
+		}).fail((jqXHR, textStatus, errorThrown) => {
+			AddLog("エラーです");
+		});
+	}
+}
+//==============================================================================
 function AddLog(data){
 	$("textarea").text($("textarea").text() + data + "\n")
 }
 
-//--------------
-function AAA(){
+function ConnectTest(){
+	const $a = document.createElement('a');
+
+	$a.setAttribute('href', "https://" + $("#ThisIP").val() + "/index.php");
+	$a.setAttribute('target', '_blank');
+	$a.setAttribute('rel', 'noopener noreferrer');
+
+	document.body.appendChild($a);
+	$a.click();
+	document.body.removeChild($a);
+}
+
+function IPSave(){
+	localStorage.setItem("KC_IP", $("#ThisIP").val());
+}
+
+function Act_Remove(data){
+	
+}
+function Act_DataAdd(name){
 	AddLog("データ追加開始");
 	
 	$.ajax({
 		type: 'GET',
-		url: 'https://192.168.1.134/GetData.php',
+		url: 'https://' + localStorage.getItem("KC_IP") + '/GetData.php?target=' + name,
 		dataType: 'json',
 	}).done((data, textStatus, jqXHR) => {
 		ActDB("INSERT",{
-			"NAME":"AAA",
+			"NAME":name,
 			"VALUE":"data:application/pdf;base64," + data.value
 		});
 		AddLog("正常終了");
@@ -133,6 +197,18 @@ function AAA(){
 	});
 }
 
+function Connect(){
+	location.href = "./search.html?rc=" + $("#TypeNum").val() + "&sc=" + $("#SearchWord").val();
+}
+//--------------
+
+
+
+
+
+
+
+//==============================================================================
 function _ImageNumberChange(add){
 	const max = _PDF._pdfInfo.numPages;
 	
