@@ -24,6 +24,21 @@ section.ERS > div {
     height: 4rem;
     display: flex;
 }
+section.ERS > div > table {
+    width: 60%;
+}
+section.ERS > div > div {
+    width: 40%;
+    border: 3px double black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    color: white;
+    margin: 0.25rem;
+}
+
+
 section.ERS > textarea {
     height: 6rem;
 }

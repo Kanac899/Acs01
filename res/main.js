@@ -123,15 +123,18 @@ function AAA(){
 		url: 'https://192.168.1.134/GetData.php',
 		dataType: 'json',
 	}).done((data, textStatus, jqXHR) => {
+		/*
 		ActDB("INSERT",{
 			"NAME":"AAA",
 			"VALUE":"data:application/pdf;base64," + data.value
-		});
+		});*/
+		console.log(textStatus);
+		console.log(jqXHR);
 		AddLog("正常終了");
 	}).fail((jqXHR, textStatus, errorThrown) => {
 		// 異常処理
 		AddLog("異常終了");
-		AddLog(textStatus);
+		AddLog(jqXHR.responseJSON.Message);
 	});
 }
 
