@@ -21,8 +21,19 @@ section.ERS td {
     height: 1.5rem;
 }
 section.ERS input {
-    width:100%;
+    width:11rem%;
 	height:100%;
+}
+section.ERS td > div {
+    font-size: 0.8rem;
+    width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px double black;
+    background-color: green;
+    color: white;
+    margin-left: 1rem;
 }
 section.ERS > div > div {
     width: 30%;
