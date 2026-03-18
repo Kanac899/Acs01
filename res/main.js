@@ -28,6 +28,8 @@ async function view_top(){
 		const quota = await navigator.storage.estimate();
 		const percentageUsed = (quota.usage / quota.quota) * 100;
 		$("span").text(quota.quota - quota.usage);
+	}else{
+		alert("エラー");
 	}
 }
 
