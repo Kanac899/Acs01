@@ -1,993 +1,238 @@
 @charset "UTF-8";
-/* =-----------------------------------= */
-/* =------ 多分ここは不変 -----= */
-/* =-----------------------------------= */
+
 html,
-body {
-  overscroll-behavior-y: none;
+body{
+	overscroll-behavior-y: none;
 }
 
 *::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
-body {
-  margin: 0;
-  background-color: var(--color-01);
-  height: 99dvh;
-  width: 100vw;
-  overflow: hidden;
+body{
+	margin: 0;
+	background-color: #bfc676;
+	height: 99dvh;
+	width: 100vw;
+	overflow: hidden;
+	font-size: 0.6rem;
 }
 
-body > div {
-  transform: rotate(90deg);
-  transform-origin: top left;
+body > div{
+	transform: rotate(90deg);
+	transform-origin: top left;
 }
 
-section {
-  width: calc(100% - 2rem);
-  height: calc(100% - 2rem);
-  padding: 1rem;
-  transform: rotate(180deg);
-  transform-origin: top;
-  display: flex;
-  overflow: hidden;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-content: flex-end;
+section{
+	width: calc(100% - 2rem);
+	height: calc(100% - 2rem);
+	padding: 1rem;
+	transform: rotate(180deg);
+	transform-origin: top;
+	display: flex;
+	overflow: hidden;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-content: flex-end;
 }
-
-input {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+input{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+img{
+	width: 100%;
+	height: 100%;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.vt{
+	font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	border: 3px double black;
+}
+th, td{
+	border: 1px solid black;
+}
+ul{
+	width: 100%;
+    padding: 0;
+	margin: 0;
+	overflow-y: scroll;
+	border: 3px double black;
+}
+li{
+	border: 1px solid black;
+    display: flex;
 }
 
 .template {
-  display: none !important;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-}
-
-th, td {
-  border: 1px solid var(--color-05);
+	display:none!important;
 }
 
 body.test > div {
-  width: 100% !important;
-  height: 100% !important;
-  transform: unset;
-  transform-origin: unset;
+	width: 100% !important;
+	height: 100% !important;
+	transform: unset;
+	transform-origin: unset;
 }
 
 body.test > div > section {
-  transform: unset;
-  transform-origin: unset;
+	transform: unset;
+	transform-origin: unset;
 }
 
-
-body {
-  --color-01:#a6cfea;
-  --color-02:#d0c16f;
-  --color-03:#a6eaca;
-  --color-04: black;
-  --color-05: black;
-  --color-06: black;
-  --color-name-text: black;
-  --color-name-area: red;
-  --color-name-line: black;
-  --color-talk-text: black;
-  --color-talk-area: red;
-  --color-talk-line: black;
-  --color-07:#a6cfea;
-  --color-08:#a6cfea;
+section.ERS,
+section.sch{
+	display: grid;
+    align-content: start;
+    justify-content: unset;
 }
 
-body.Data01 {
-  --color-01: #5c6266;
-  --color-02: #7b7972;
-  --color-03: #5b625f;
-  --color-04: #ffffff;
-  --color-name-text: white;
-  --color-name-area: #5A5252;
-  --color-name-line: white;
-  --color-talk-text: white;
-  --color-talk-area: #5A5252;
-  --color-talk-line: white;
+/* トップですね。これ */
+section.ERS > div {
+	height: 4rem;
+	display: flex;
+	align-items: center;
+}
+section.ERS > div > table {
+	width: 70%;
+}
+section.ERS th {
+	background-color: #88dd88;
+	font-size: 0.9rem;
+}
+section.ERS td {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 1.5rem;
+	background-color: #e3dada;
+}
+section.ERS td span{
+	font-size: 1rem;
+}
+section.ERS input {
+	width: 7rem;
+	height:100%;
+}
+section.ERS td > div {
+    width: 3rem;
+    background-color: #cfd92e;
+    margin-left: 1rem;
+}
+section.ERS > div > a {
+	width: 30%;
+    height: 3rem;
+    background-color: #c07643;
+    color: white;
+}
+section.ERS textarea {
+	height: 3rem;
+	width: 100%;
+    margin: 1rem 0;
+}
+section.ERS > ul > li > a{
+	width: calc(100% - 4rem);
+	background-color: #00ff2e;
+}
+section.ERS > ul > li > div {
+    width: 4rem;
+    background-color: blue;
+    color: white;
 }
 
-body.Data02 {
-  --color-02: transparent;
-  --color-03: #d0c16f;
-  --color-name-text: #EFDCBE;
-  --color-name-area: #3A3232;
-  --color-name-line: #9B8A7E;
-  --color-talk-text: #463C3C;
-  --color-talk-area: #B3AFAB;
-  --color-talk-line: #9C897F;
+/* 検索だっつんてんだろー */
+section.ERS.RS > div{
+	height:unset;
+	align-items:unset;
+    justify-content: space-around;
 }
-body.Data02 section.search {
-  width: calc(100% - 4rem);
-  height: calc(100% - 4rem);
-  padding: 2rem;
-  background-image: url("/System/img/se02bg.jpg");
-  background-size: 100% 100%;
+section.ERS.RS > div > div{
+    background-color: red;
+    width: 4rem;
+    height: 2rem;
 }
-
-body.Data03 {
-  --color-name-text: #FFFFFF;
-  --color-name-area: #8D0FA8;
-  --color-name-line: #E7BE7E;
-  --color-talk-text: #6D6562;
-  --color-talk-area: #F7D9F2;
-  --color-talk-line: #8D0FA8;
+section.ERS.RS li > span{
+    width: calc(100% - 10rem);
+    align-items: center;
+    background-color: #cbd5ce;
+    overflow: hidden;
+    display: block;
 }
-body.Data03 section.search > div > div {
-  width: 25rem;
-  height: 3rem;
-  display: flex;
+section.ERS.RS li > a{
+	width: 5rem;
+    background-color: #00ff4e;
 }
-body.Data03 section.search > div > div > span {
-  height: unset;
-}
-body.Data03 section.search > div > div > div {
-  width: 20rem;
-}
-body.Data03 section.search > div > div img {
-  width: 10rem;
+section.ERS.RS li > div{
+    width: 5rem;
+    background-color: #fffb89;
+	color: black;
 }
 
-body.Data06 {
-  --color-name-text: white;
-  --color-name-area: #ABC0F5;
-  --color-name-line: transparent;
-  --color-talk-text: white;
-  --color-talk-area: transparent;
-  --color-talk-line: transparent;
-}
-
-body.Data08 {
-  --color-name-text: #000000;
-  --color-name-area: #68DB9A;
-  --color-name-line: #000000;
-  --color-talk-text: white;
-  --color-talk-area: #5A5252;
-  --color-talk-line: #000000;
-}
-
-body.Data11,
-body.Data12,
-body.Data13 {
-  --color-name-text: #EFDCBE;
-  --color-name-area: transparent;
-  --color-name-line: transparent;
-  --color-talk-text: black;
-  --color-talk-area: transparent;
-  --color-talk-line: transparent;
-}
-
-body.Data21 {
-  --color-name-text: #FFC49F;
-  --color-name-area: black;
-  --color-name-line: black;
-  --color-talk-text: white;
-  --color-talk-area: black;
-  --color-talk-line: black;
-}
-
-body.Data31,
-body.Data32,
-body.Data33 {
-  --color-name-area: #295E60;
-  --color-name-line: #295E60;
-  --color-talk-area: #181418;
-  --color-talk-line: #181418;
-}
-
-body.Data69 {
-  --color-01:#a6cfea;
-  --color-02:#eeeeee;
-  --color-03:#ffffff;
-  --color-04:#3b699a;
-  --color-name-text: #F1E9DC;
-  --color-name-area: #3b699a;
-  --color-talk-area: #dfe3e3;
-}
-body.Data69 section.search > div > a {
-  color: var(--color-06);
-}
-body.Data69 section.search > div > a div > div > span, body.Data69 section.search > div > a section.search > div > a div > div > span {
-  margin: 0;
-  height: 1.2rem;
-  font-size: 0.8rem;
-  color: var(--Add05);
-}
-body.Data69 {
-  --Add01:#96f2ff;
-  --Add02:#f8ff96;
-  --Add03:#87bec6;
-  --Add04:#ffb7ec;
-  --Add05:#831e88;
-}
-
-body.Data81 {
-  --color-01:#E3E0D1;
-  --color-02:#EDEBDF;
-  --color-05:#5C0D12;
-  --color-name-text: #F1E9DC;
-  --color-name-area: #898989;
-  --color-name-line: #707070;
-  --color-talk-text: #CC9999;
-  --color-talk-area: #FFCCCC;
-  --color-talk-line: #FAFAFA;
-}
-body.Data81 section.search > div {
-  display: unset;
-  height: calc(100% - 6rem);
-}
-body.Data81 section.search > div > div {
-  width: 96%;
-  height: auto;
-  font-size: 1.3rem;
-  line-height: 1.3rem;
-  margin: 1rem;
-}
-body.Data81 section.search > div > div > div {
-  width: calc(100% - 2rem);
-  display: flex;
-  justify-content: space-between;
-  height: 1.5rem;
-  padding: 0 1rem;
-}
-body.Data81 section.search > div > div > div:nth-child(1) {
-  background-color: var(--color-talk-text);
-}
-body.Data81 section.search > div > div > div:nth-child(2) {
-  background-color: var(--color-talk-area);
-}
-body.Data81 section.search > div > div > div > a {
-  text-decoration: none;
-  color: var(--color-05);
-}
-body.Data81 section.search > div > div ul {
-  display: flex;
-  margin: 0;
-  padding: 0 1rem;
-  width: calc(100% - 2rem);
-  background-color: var(--color-talk-line);
-  font-size: 1rem;
-  white-space: nowrap;
-  flex-wrap: wrap;
-}
-body.Data81 section.search > div > div ul li {
-  width: -moz-fit-content;
-  width: fit-content;
-  flex-shrink: 0;
-  list-style: none;
-}
-body.Data81 section.search > div > div ul li a {
-  display: flex;
-  border: 1px solid var(--color-name-line);
-  text-decoration: none;
-  margin: 0.25rem;
-  padding: 0 0.25rem;
-  color: var(--color-name-text);
-  background: var(--color-name-area);
-  align-items: center;
-  font-weight: bold;
-  flex-wrap: wrap;
-}
-body.Data81 section.search > div > div.IsDir {
-  background-color: var(--color-name-area);
-  border: 1px solid var(--color-name-line);
-  color: var(--color-name-text);
-  height: 3rem;
-}
-body.Data81 section.search > div.pan {
-  height: 2rem;
-  width: 90%;
-  margin-bottom: 1rem;
-  display: flex;
-}
-body.Data81 section.search > div.pan > a {
-  height: 100%;
-  width: auto;
-  padding: 0 1rem;
-  color: var(--color-06);
-}
-
-body.Data91 {
-  --color-main:#D1C9BC;
-  --color-list:#353C43;
-  --color-name-text: #EFDCBE;
-  --color-name-area: #4E4548;
-  --color-name-line: #AB9689;
-  --color-talk-text: black;
-  --color-talk-area: #C4BEBF;
-  --color-talk-line: #AB9689;
-}
-
-section.search > div {
-  width: calc(100% - 0.5rem);
-  height: calc(100% - 2.5rem);
-  background-color: var(--color-02);
-  border: 1px solid var(--color-05);
-  color: var(--color-06);
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  overflow-y: scroll;
-}
-section.search > div > div {
-  width: 8rem;
-  height: 11rem;
-  box-sizing: content-box;
-  display: grid;
-  align-items: center;
-  border: 1px solid var(--color-05);
-  background-color: var(--color-03);
-}
-section.search > div > div > img {
-  border: 1px solid var(--color-05);
-  box-sizing: border-box;
-}
-section.search > div > div > div {
-  height: 3rem;
-  display: grid;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-section.search > div > a {
-  width: 12rem;
-  height: 12.5rem;
-  box-sizing: content-box;
-  display: grid;
-  align-items: center;
-  border: 1px solid var(--color-05);
-  background-color: var(--color-03);
-  text-decoration: none;
-}
-section.search > div > a div {
-  display: grid;
-}
-section.search > div > a div > span:nth-child(1) {
-  font-size: 0.7rem;
-  margin-left: 1rem;
-}
-section.search > div > a div > div {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-section.Music > div {
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-02);
-  border: 1px solid var(--color-05);
-  color: var(--color-06);
-  align-content: flex-start;
-  overflow-y: scroll;
-  box-sizing: border-box;
-}
-section.Music > div > div {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  border: 1px solid var(--color-05);
-}
-section.Music > div > div:nth-child(1) {
-  height: 4rem;
-  display: grid;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  white-space: nowrap;
-}
-section.Music > div > div:nth-child(1) h1 {
-  margin: 0;
-  font-size: 1.2rem;
-}
-section.Music > div > div:nth-child(1) h2 {
-  margin: 0;
-  font-size: 1.1rem;
-}
-section.Music > div > div:nth-child(2) {
-  border: none;
-}
-section.Music > div > div:nth-child(2) > div {
-  width: 50%;
-  display: flex;
-  justify-content: flex-start;
-  border: 1px solid var(--color-05);
-}
-section.Music > div > div:nth-child(4) {
-  width: calc(100% - 2rem);
-  height: 15rem;
-  padding: 1rem;
-}
-section.Music > div > div:nth-child(4) > div {
-  width: 20rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--color-06);
-  overflow: hidden;
-}
-section.Music > div > div:nth-child(4) img {
-  width: -moz-fit-content;
-  width: fit-content;
-  height: 100%;
-}
-section.Music > div > div:nth-child(4) > textarea {
-  width: calc(100% - 21rem);
-  margin-left: 1rem;
-}
-section.Music > div > audio {
-  height: 4rem;
-  width: calc(100% - 1rem);
-  padding: 0.5rem;
-  background-color: var(--color-04);
-}
-section.Music > div ul.TagList {
-  display: flex;
-  margin: 0;
-  padding: 0 1rem;
-  width: calc(100% - 2rem);
-  overflow-x: scroll;
-  border: 1px solid var(--color-05);
-}
-section.Music > div ul.TagList li {
-  width: -moz-fit-content;
-  width: fit-content;
-  flex-shrink: 0;
-  list-style: none;
-}
-section.Music > div ul.MainList {
-  width: 90%;
-  height: calc(100% - 35rem);
-  padding: 0.5rem;
-  overflow-y: scroll;
-  margin: auto;
-  border: 3px solid var(--color-05);
-  background-color: var(--color-talk-area);
-  white-space: nowrap;
-}
-section.Music > div ul.MainList li {
-  font-size: 1.25rem;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  border-top: 1px solid var(--color-talk-line);
-  border-bottom: 1px solid var(--color-talk-line);
-  background-color: var(--Add01);
-}
-section.Music > div ul.MainList li.act {
-  padding-left: 2rem;
-  width: calc(100% - 2rem);
-  background-color: var(--Add02);
-}
-section.Music > div ul.MainList li.act.cxt {
-  padding-left: 4rem;
-  width: calc(100% - 4rem);
-}
-section.Music > div ul.MainList li.act span {
-  display: none;
-}
-section.Music > div ul.MainList li.cont {
-  padding-left: 2rem;
-  width: calc(100% - 2rem);
-  background-color: var(--Add03);
-}
-section.Music > div ul.MainList li.select {
-  background-color: var(--Add04);
-}
-section.Music > div div > ul.TagList {
-  width: calc(50% - 2rem);
-}
-section.Music > div a {
-  display: flex;
-  border: 1px solid var(--color-name-line);
-  text-decoration: none;
-  margin: 0.25rem;
-  padding: 0.25rem;
-  color: var(--color-name-text);
-  background: var(--color-name-area);
-  align-items: center;
-}
-section.Music > div.Rev {
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
+/* 真理の御魂 */
 section.Image {
-  width: 100%;
-  height: 99dvh;
-  padding: 0;
-  position: relative;
-  align-items: center;
+	width: 100%;
+	height: 99dvh;
+	padding: 0;
+	position: relative;
+	align-items: center;
+	align-content: center;
 }
 section.Image div {
-  z-index: 108;
-  position: absolute;
-  background-color: var(--color-07);
-  top: 10px;
-  left: 10px;
-  border: 1px solid var(--color-05);
-  border-radius: 5px;
-  padding: 0.25rem;
-  transform: unset;
+	z-index: 108;
+	position: absolute;
+	background-color: #a6cfea;
+	top: 10px;
+	left: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 0.25rem;
+	transform: unset;
+    font-size: 1rem;
 }
 section.Image input {
-  position: absolute;
-  background-color: transparent;
-  border: 2px dashed var(--color-05);
-  height: 60%;
-  width: 4rem;
-  font-size: 2rem;
+	position: absolute;
+	background-color: transparent;
+	border: 2px dashed black;
+	height: 60%;
+	width: 4rem;
+	font-size: 2rem;
 }
 section.Image input.bbs {
-  width: 3rem;
-  height: 3rem;
-  bottom: 10px;
+	width: 3rem;
+	height: 3rem;
+	bottom: 10px;
 }
 section.Image input#b1 {
-  left: 10px;
-  z-index: 101;
+	left: 10px;
+	z-index: 101;
 }
 section.Image input#b2 {
-  right: 10px;
-  z-index: 102;
+	right: 10px;
+	z-index: 102;
 }
 section.Image input#b3 {
-  right: 10px;
-  z-index: 103;
+	right: 10px;
+	z-index: 103;
 }
 section.Image input#b4 {
-  left: 10px;
-  z-index: 104;
+	left: 10px;
+	z-index: 104;
 }
 section.Image.IsL div {
-  top: 25px;
-  left: unset;
-  right: 0;
-  transform: rotate(90deg);
+	top: 25px;
+	left: unset;
+	right: 0;
+	transform: rotate(90deg);
 }
 section.Image.IsL canvas {
-  transform: rotate(90deg);
+	transform: rotate(90deg);
 }
 section.Image.IsB input {
-  border: none;
+	border: none;
 }
-
-section.dialog {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  align-content: center;
-}
-section.dialog > div {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  opacity: 0.5;
-  background-color: black;
-  z-index: 100;
-}
-section.dialog ol {
-  background-color: #b1a9b9;
-  width: 30rem;
-  border: 1px solid black;
-  height: 75%;
-  padding: 0;
-  z-index: 101;
-  overflow-y: scroll;
-}
-section.dialog ul {
-  background-color: #ceda26;
-  border: 1px solid black;
-  height: 7rem;
-  width: 30rem;
-  display: flex;
-  align-items: center;
-  padding: 0;
-}
-section.dialog ul div {
-  height: 100%;
-}
-section.dialog ul img {
-  width: 10rem;
-  margin-right: 1rem;
-}
-
-body.Data06 section.View article > div .textArea p,
-body.Data06 section.View article > div .textArea > .nameArea > div.Cname {
-  -webkit-text-stroke: 4px #415286;
-  paint-order: stroke;
-}
-
-body.Data11 section.search > div > div,
-body.Data12 section.search > div > div,
-body.Data13 section.search > div > div {
-  width: 9rem;
-  height: 12rem;
-}
-body.Data11 section.dialog ul div,
-body.Data12 section.dialog ul div,
-body.Data13 section.dialog ul div {
-  width: 10rem;
-  margin-right: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-body.Data11 section.dialog ul img,
-body.Data12 section.dialog ul img,
-body.Data13 section.dialog ul img {
-  width: 7rem;
-  transform: rotate(-90deg);
-}
-body.Data11 section.View article > div,
-body.Data12 section.View article > div,
-body.Data13 section.View article > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-body.Data11 section.View article > div img.EventObject,
-body.Data12 section.View article > div img.EventObject,
-body.Data13 section.View article > div img.EventObject {
-  height: 100vw;
-  rotate: -90deg;
-  background-size: 71vw auto;
-  width: unset;
-  background-position: unset;
-}
-body.Data11 section.View article > div .textArea,
-body.Data12 section.View article > div .textArea,
-body.Data13 section.View article > div .textArea {
-  background-image: url("/system/img/11B.png");
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-}
-body.Data11 section.View article > div .textArea > .nameArea > div.Cname,
-body.Data12 section.View article > div .textArea > .nameArea > div.Cname,
-body.Data13 section.View article > div .textArea > .nameArea > div.Cname {
-  background-image: url("/system/img/11A.png");
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-}
-
-body.Data21 section.View article > div div.CharaArea {
-  background-size: 100%;
-  background-repeat: no-repeat;
-  display: none;
-}
-
-body.Data31 section.search > div > div,
-body.Data32 section.search > div > div,
-body.Data33 section.search > div > div {
-  height: 12rem;
-}
-body.Data31 section.View article > div div.FrashObject,
-body.Data32 section.View article > div div.FrashObject,
-body.Data33 section.View article > div div.FrashObject {
-  z-index: 60;
-  opacity: 1;
-  height: 100%;
-}
-
-body.Data91 .CharaArea img {
-  background-size: 100% 100%;
-}
-
-section.View {
-  width: 100%;
-  height: 101%;
-  padding: 0;
-}
-section.View article {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 200;
-}
-section.View article > div {
-  width: 100%;
-  height: 100%;
-  line-height: 0;
-  position: relative;
-}
-section.View article > div video {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: fill;
-     object-fit: fill;
-}
-section.View article > div canvas {
-  width: 100%;
-  height: 100%;
-  z-index: 80;
-  position: absolute;
-}
-section.View article > div div.FrashObject {
-  z-index: 100;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: white;
-}
-section.View article > div img.EventObject {
-  background-size: 100% 100%;
-  width: 100%;
-}
-section.View article > div div.CharaArea {
-  position: absolute;
-  width: 60%;
-  height: 90%;
-  top: 5%;
-  left: 20%;
-}
-section.View article > div .textArea {
-  width: 90%;
-  height: 10.5rem;
-  border-color: var(--color-talk-line);
-  background-color: var(--color-talk-area);
-  color: var(--color-talk-text);
-  font-size: 1.6rem;
-  position: absolute;
-  left: 5%;
-  bottom: 1rem;
-  padding-top: 0.5rem;
-  padding-left: 1rem;
-  padding-bottom: 1rem;
-  margin-top: 0.5rem;
-  box-sizing: border-box;
-  border-radius: 10px;
-  border-style: solid;
-  line-height: normal;
-  overflow: visible;
-  z-index: 121;
-  opacity: 0.9;
-}
-section.View article > div .textArea > .nameArea {
-  height: 1.5em;
-  border: none;
-  position: absolute;
-  top: -3.5rem;
-  left: 1rem;
-  display: flex;
-  padding: 0;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-}
-section.View article > div .textArea > .nameArea > div {
-  border-color: var(--color-name-line);
-  background-color: var(--color-name-area);
-  color: var(--color-name-text);
-  border-style: solid;
-  border-width: 3px;
-  border-radius: 10px;
-}
-section.View article > div .textArea > .nameArea > div.Cname {
-  line-height: normal;
-  width: 34rem;
-  padding-left: 1rem;
-}
-section.View article > div .textArea > .nameArea > div.Ccount {
-  width: 3rem;
-  margin-left: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-section.View article > div .textArea p {
-  height: 1.5em;
-  margin: 0;
-}
-
-section.Debug {
-  position: absolute;
-  bottom: 1.5rem;
-  right: 1rem;
-  height: 10rem;
-  width: 4rem;
-  border: 3px double black;
-  display: grid;
-  align-items: center;
-  z-index: 300;
-  justify-items: center;
-  align-content: space-evenly;
-}
-section.Debug > div {
-  width: 100%;
-  text-align: center;
-  border: 1px solid black;
-  background-color: lightblue;
-}
-
-section.admin {
-  align-content: flex-start;
-}
-section.admin form {
-  background-color: red;
-  width: 100%;
-  display: flex;
-  height: 6rem;
-  margin-top: 3rem;
-}
-section.admin form > div {
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  border: 1px double black;
-  box-sizing: border-box;
-  width: 15rem;
-}
-section.admin form > div:nth-child(1) {
-  width: calc(100% - 30rem);
-}
-section.admin select {
-  width: 80%;
-  font-size: 1.5rem;
-}
-section.admin > div {
-  width: 100%;
-  background-color: #ffffff;
-  height: calc(100% - 10rem);
-  border: 5px double black;
-  padding: 0;
-  overflow: scroll;
-}
-section.admintable {
-  border-spacing: 0;
-}
-section.admintable th {
-  background-color: #1200ff;
-  color: white;
-}
-section.admintable td {
-  white-space: nowrap;
-}
-
-img.FPS16 {
-  animation: aem1004 1.6s steps(15) infinite;
-}
-img.FPS24 {
-  animation: aem1004 0.8s steps(15) infinite;
-}
-img.FPS8 {
-  animation: aem1005 2.4s steps(15) 1 forwards;
-}
-
-@keyframes aem1004 {
-  to {
-    background-position: 0px -1497.75vw;
-  }
-}
-@keyframes aem1005 {
-  to {
-    background-position: 0px -1497.75vw;
-  }
-}
-section.View article > div canvas#canvas-1 {
-  z-index: 81;
-}
-
-section.View article > div canvas#canvas-2 {
-  z-index: 82;
-}
-
-section.View article > div canvas#canvas-3 {
-  z-index: 83;
-}
-
-section.View article > div canvas#canvas-4 {
-  z-index: 84;
-}
-
-section.View article > div canvas#canvas-5 {
-  z-index: 85;
-}
-
-section.View article > div canvas#canvas-6 {
-  z-index: 86;
-}
-
-section.View article > div canvas#canvas-7 {
-  z-index: 87;
-}
-
-section.View article > div canvas#canvas-8 {
-  z-index: 88;
-}
-
-section.View article > div canvas#canvas-9 {
-  z-index: 89;
-}
-
-section.View article > div canvas#canvas-10 {
-  z-index: 90;
-}
-
-section.View article > div canvas#canvas-11 {
-  z-index: 91;
-}
-
-section.View article > div canvas#canvas-12 {
-  z-index: 92;
-}
-
-section.View article > div canvas#canvas-13 {
-  z-index: 93;
-}
-
-section.View article > div canvas#canvas-14 {
-  z-index: 94;
-}
-
-section.View article > div canvas#canvas-15 {
-  z-index: 95;
-}
-
-.Emotion.Em01,
-.Emotion.Em05,
-.Emotion.Em06,
-.Emotion.Em08,
-.Emotion.Em10,
-.Emotion.Em11,
-.Emotion.Em16,
-.Emotion.Em18,
-.Emotion.Em20,
-.Emotion.Em21,
-.Emotion.Em22,
-.Emotion.Em23,
-.Emotion.Em24,
-.Emotion.Em28 {
-  top: 3rem;
-  left: 12rem;
-}
-
-.Emotion.Em02,
-.Emotion.Em09,
-.Emotion.Em27 {
-  top: 3rem;
-  left: 15rem;
-}
-
-.Emotion.Em03,
-.Emotion.Em04,
-.Emotion.Em07,
-.Emotion.Em12,
-.Emotion.Em13,
-.Emotion.Em14,
-.Emotion.Em15,
-.Emotion.Em17,
-.Emotion.Em26 {
-  top: 3rem;
-  right: 15rem;
-}
-
-.Emotion.Em19 {
-  bottom: 15rem;
-  left: 10rem;
-}
-
-.Emotion.Em25 {
-  top: 2rem;
-  left: 20rem;
-}/*# sourceMappingURL=main.css.map */
